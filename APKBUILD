@@ -167,7 +167,7 @@ package() {
 	_package zeron "$pkgdir"
 	
 	# sign vmlinuz
-	[ -n "${VMLINUZ_SIGN_TOOL:-}" ] && ${VMLINUZ_SIGN_TOOL} "$pkgdir/boot/vmlinuz-zeron"
+	[ -n "${VMLINUZ_SIGN_TOOL:-}" ] && ${VMLINUZ_SIGN_TOOL} "$pkgdir/boot/vmlinuz-zeron" || true
 }
 
 # subflavors install in $subpkgdir
