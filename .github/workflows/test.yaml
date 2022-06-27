@@ -3,6 +3,7 @@ on: [push]
 jobs:
   build-shim:
     strategy:
+      fail-fast: false
       matrix:
         platform: [amd64, arm64]
     runs-on: ubuntu-latest

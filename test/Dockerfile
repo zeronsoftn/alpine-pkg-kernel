@@ -21,5 +21,7 @@ USER user
 
 ADD "." "/work/src/"
 
-RUN cd /work/src && for part in sanitycheck builddeps clean fetch unpack prepare mkusers; do abuild $part; done
+ARG PACKAGER=test@lists.alpinelinux.org
+RUN abuild-keygen -an
+RUN cd /work/src && abuild
 
