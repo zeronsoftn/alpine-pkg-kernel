@@ -23,5 +23,8 @@ ADD "." "/work/src/"
 
 ARG PACKAGER=test@lists.alpinelinux.org
 RUN abuild-keygen -an
-RUN cd /work/src && abuild
+
+RUN cd /work/src && \
+    export MAKEFLAGS="-j $(getconf _NPROCESSORS_ONLN)" && \
+    abuild
 
