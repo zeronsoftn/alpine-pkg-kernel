@@ -109,6 +109,7 @@ _prepareconfig() {
 		|| return 1
 
 	cp "$srcdir"/$_config "$_builddir"/.config
+	cp "$srcdir/signing_certs.pem" "./certs/signing_certs.pem"
 	msg "Configuring $_flavor kernel ($_arch)"
 	make -C "$srcdir"/linux-$_kernver \
 		O="$_builddir" \
