@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM alpine:3.18
 
 RUN apk update && \
     apk add \
@@ -7,8 +7,10 @@ RUN apk update && \
     alpine-sdk sudo \
     mkinitfs \
     perl gmp-dev mpc1-dev mpfr-dev elfutils-dev bash flex bison zstd \
-    sed installkernel bc linux-headers linux-firmware-any openssl-dev mawk diffutils findutils \
-    libarchive-tools
+    sed installkernel bc linux-headers linux-firmware-any \
+    openssl-dev mawk diffutils findutils \
+    libarchive-tools \
+    pahole python3
 
 RUN useradd -m -s /bin/bash -G wheel user && \
     chmod 777 /var/cache/distfiles/ && \
